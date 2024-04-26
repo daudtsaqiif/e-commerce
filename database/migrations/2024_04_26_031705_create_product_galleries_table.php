@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('product_galleries', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Product::class)->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignIdFor(Product::class)->references('id')->on('product')->onUpdate('cascade')->onDelete('cascade');
             $table->string('image');
             $table->boolean('is_featured')->default('false');
             $table->timestamps();
