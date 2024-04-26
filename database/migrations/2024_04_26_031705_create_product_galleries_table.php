@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Product::class)->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
             $table->string('image');
-            $table->boolean('is_featured')->default('false');
+            $table->boolean('is_featured')->default(false);
             $table->timestamps();
         });
     }
