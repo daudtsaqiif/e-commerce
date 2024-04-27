@@ -5,7 +5,7 @@
         <li class="nav-item">
             <a class="nav-link " href="{{ route('admin.dashboard') }}">
                 <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+                <span>Dashboard</span>a
             </a>
         </li><!-- End Dashboard Nav -->
 
