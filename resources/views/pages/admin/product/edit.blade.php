@@ -49,7 +49,7 @@
             <div class="d-flex justify-content-end">
                 <button class="btn btn-primary" type="submit">
                     <i class="bi bi-plus"></i>
-                    Create Product
+                    Edit Product
                 </button>
             </div> 
             
