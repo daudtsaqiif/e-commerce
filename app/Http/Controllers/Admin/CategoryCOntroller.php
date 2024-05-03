@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Exception;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
@@ -37,6 +39,27 @@ class CategoryController extends Controller
             'name' => 'required',
             'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
+
+        try {
+            //storage image
+            $image = $request->file('image');
+            $image->storeAs('public/category', $image->hashName());
+
+            //create category
+            $category = Category::create([
+                'name' => $request->name,
+                'slug' => Str::slug($request->name),
+                'image' => $image->hashName()
+            ]);
+
+            // dd($category);
+
+            return redirect()->back()->with('success', 'Category add successfully');
+
+        } catch (Exception $e) {
+            // dd($e->getMessage());
+            return redirect()->back()->with('error', 'Failed to add category');
+        }
     }
 
     /**

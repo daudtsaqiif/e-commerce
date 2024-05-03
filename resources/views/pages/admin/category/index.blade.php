@@ -40,7 +40,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->name }}</td>
                             <td>
-                                <img src="" alt="{{ $row->name }}" class="img-thumbnail">
+                                <img src="{{ url('storage/category/', $row->image) }}" alt="{{ $row->name }}" class="w-25">
                             </td>
                             <td><button class="btn btn-warning">
                                     <i class="bi bi-pencil"></i>
