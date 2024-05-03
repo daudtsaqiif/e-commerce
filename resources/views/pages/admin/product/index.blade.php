@@ -14,17 +14,19 @@
             </ol>
         </nav>
 
-        <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#createModalProduct">
+        <a href="{{ route('admin.product.create') }}" class="btn btn-primary m-2" >
             Add Product
             <i class="bi bi-plus"></i>
-        </button>
+        </a>
 
         <table class="table datatable">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Name</th>
-                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Price</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -33,14 +35,13 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $row->name }}</td>
-                        <td>
-                            <img src="{{ url('storage/category/', $row->image) }}" alt="{{ $row->name }}" class="img-thumbnail" width="250">
-                        </td>
-                        <td><button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#editModalCategory{{ $row->id }}">
+                        <td>{{ $row->category->name }}</td>
+                        <td>{{ $row->description }}</td>
+                        <td>{{ $row->price }}</td>
+                        <td><a href="{{ route('admin.product.edit', $row->id) }}" class="btn btn-warning">
                                 <i class="bi bi-pencil"></i>
-                            </button>
-                            @include('pages.admin.category.modal-edit')
-                            <form action="{{ route('admin.category.destroy', $row->id) }}" method="post" class="d-inline">
+                            </a>
+                            <form action="{{ route('admin.product.destroy', $row->id) }}" method="post" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">
@@ -51,7 +52,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="text-center"> Data is Empty</td>
+                        <td colspan="6" class="text-center"> Data is Empty</td>
                     </tr>
                 @endforelse
             </tbody>
