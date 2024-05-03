@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -41,16 +42,15 @@ class CategoryController extends Controller
         ]);
 
         try {
+            $data = $request->all();
+
             //storage image
             $image = $request->file('image');
             $image->storeAs('public/category', $image->hashName());
 
-            //create category
-            $category = Category::create([
-                'name' => $request->name,
-                'slug' => Str::slug($request->name),
-                'image' => $image->hashName()
-            ]);
+            $data['image'] = $image->hashName();
+            $data['slug'] = Str::slug($request->name);
+            Category::create($data);    
 
             // dd($category);
 
@@ -84,6 +84,39 @@ class CategoryController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $this->validate($request, [
+            'name' => 'required',
+            'image' => 'image|mimes:jpg,jpeg,png|max:9000'
+        ]);
+
+        try {
+            $category = Category::find($id);
+            
+            if ($request->file('image') == '') {
+                $data = $request->all();
+                $data['slug'] = Str::slug($request->name);
+
+                $category->update($data);
+                
+            } else {
+                //delete old image 
+                Storage::disk('local')->delete('public/category/' . basename($category->image));
+
+                //storge new image
+                $image = $request->file('image');
+                $image->storeAs('public/category', $image->hashName());
+
+                $data = $request->all();
+                $data['image'] = $image->hashName();
+                $data['slug'] = Str::slug($request->name);
+
+                $category->update($data);
+            }
+            return redirect()->back()->with('success', 'Category updated');
+            
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Failed to update');
+        }
     }
 
     /**
@@ -92,5 +125,18 @@ class CategoryController extends Controller
     public function destroy(string $id)
     {
         //
+        try {
+            //find category
+            $category = Category::find($id);
+
+            //delete image
+            Storage::disk('local')->delete('public/category/' . basename($category->image));
+
+            $category->delete();
+
+            return redirect()->back()->with('success', 'Category deleted');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Failed to delete');
+        }
     }
 }
