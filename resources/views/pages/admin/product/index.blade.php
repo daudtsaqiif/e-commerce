@@ -38,7 +38,10 @@
                         <td>{{ $row->category->name }}</td>
                         <td>{{ $row->description }}</td>
                         <td>{{ $row->price }}</td>
-                        <td><a href="{{ route('admin.product.edit', $row->id) }}" class="btn btn-warning">
+                        <td><a href="#" class="btn btn-info">
+                            <i class="bi bi-card-image"></i>
+                        </a>
+                            <a href="{{ route('admin.product.edit', $row->id) }}" class="btn btn-warning">
                                 <i class="bi bi-pencil"></i>
                             </a>
                             <form action="{{ route('admin.product.destroy', $row->id) }}" method="post" class="d-inline">
