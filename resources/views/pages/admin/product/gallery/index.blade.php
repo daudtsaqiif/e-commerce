@@ -13,6 +13,28 @@
                     <li class="breadcrumb-item active">Data Product Gallery</li>
                 </ol>
             </nav>
+
+            <a href="#" class="btn btn-primary">
+                <i class="bi bi-plus"></i>Tambah Gallery
+            </a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Image</td>
+                        <td>Action</td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
     </div>
 @endsection
