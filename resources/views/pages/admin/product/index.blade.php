@@ -37,8 +37,8 @@
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->category->name }}</td>
                         <td>{{ $row->description }}</td>
-                        <td>{{ $row->price }}</td>
-                        <td><a href="#" class="btn btn-info">
+                        <td>RP.{{ $row->price }}</td>
+                        <td><a href="{{ route('admin.product.gallery.edit', $row->id) }}" class="btn btn-info">
                             <i class="bi bi-card-image"></i>
                         </a>
                             <a href="{{ route('admin.product.edit', $row->id) }}" class="btn btn-warning">
