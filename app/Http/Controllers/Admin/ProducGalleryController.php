@@ -17,6 +17,8 @@ class ProducGalleryController extends Controller
         $product =Product::findOrFail($id);
         $gallery = $product->product_galleries;
 
+        // dd($product);
+
         return view('pages.admin.product.gallery.index', compact('product', 'gallery'));
 
         // dd($product);
