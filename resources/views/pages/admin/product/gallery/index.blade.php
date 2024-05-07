@@ -15,9 +15,9 @@
             </nav>
 
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                <i class="bi bi-plus"></i> Product gallery          
+                <i class="bi bi-plus"></i> Product gallery
             </button>
-        @include('pages.admin.product.gallery.modal-create')
+            @include('pages.admin.product.gallery.modal-create')
 
             <table class="table">
                 <thead>
@@ -28,11 +28,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($product->product_galleries as $row)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td><img src="#" alt="gambar"></td>
+                            <td>Action</td>
+                        </tr>
+                    @empty
                     <tr>
-                        <td>1</td>
-                        <td>Image</td>
-                        <td>Action</td>
+                        <td colspan="3" class="text-center" > Gallery is empty</td>
                     </tr>
+                    @endforelse
                 </tbody>
             </table>
 
