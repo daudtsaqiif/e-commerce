@@ -35,20 +35,29 @@ class ProducGalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, string $id)
+    public function store(Request $request, Product $product)
     {
         //
-        $this->validate($request, [
-            'image' => 'required|image'
-        ]);
-
         try {
-            $product = Product::findOrFail($id);
-            $image = $request->file('image');
-            $image->storeAs();
+            
+            $files = $request->file('files');
+
+            foreach ($files as $file){
+                //upload gambar(image)
+                $file->storeAs('public/product/gallery', $file->hashName());
+
+                $product->product_galleries()->create([
+                    'products_id' => $product->id,
+                    'image' => $file->hashName()
+                ]);
+            }
+
+            return redirect()->route('admin.product.gallery.index', $product->id )->with('success','Berhasil di buat');
+
+
         } catch (\Exception $e) {
             dd($e->getMessage());
-            return redirect()->route('admin.product.gallery.index', $id)->with('error');
+            return redirect()->route('admin.product.gallery.index', $product->id )->with('error', 'Gagal!');
         }
     }
 
