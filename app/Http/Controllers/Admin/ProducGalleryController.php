@@ -35,12 +35,21 @@ class ProducGalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, string $id)
     {
         //
         $this->validate($request, [
             'image' => 'required|image'
         ]);
+
+        try {
+            $product = Product::findOrFail($id);
+            $image = $request->file('image');
+            $image->storeAs();
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+            return redirect()->route('admin.product.gallery.index', $id)->with('error');
+        }
     }
 
     /**
