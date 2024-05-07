@@ -14,9 +14,10 @@
                 </ol>
             </nav>
 
-            <a href="#" class="btn btn-primary">
-                <i class="bi bi-plus"></i>Tambah Gallery
-            </a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                <i class="bi bi-plus"></i> Product gallery          
+            </button>
+        @include('pages.admin.product.gallery.modal-create')
 
             <table class="table">
                 <thead>
