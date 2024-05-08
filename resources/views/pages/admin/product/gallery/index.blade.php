@@ -31,8 +31,16 @@
                     @forelse ($product->product_galleries as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td><img src="#" alt="gambar"></td>
-                            <td>Action</td>
+                            <td><img src="{{ url('/storage/product/gallery',$row->image)  }}" alt="gambar" class="img-thumbnail" width="100"></td>
+                            <td>
+                                <form action="{{ route('admin.product.gallery.destroy', [$product->id, $row->id]) }}" method="post"> 
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger" type="submit" class="d-inline">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                                </form>
+                            </td>
                         </tr>
                     @empty
                     <tr>
