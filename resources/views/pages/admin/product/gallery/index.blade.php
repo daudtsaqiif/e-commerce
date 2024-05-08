@@ -49,7 +49,9 @@
                     @endforelse
                 </tbody>
             </table>
-
+            <a href="{{ route('admin.product.index') }}" class="btn btn-primary">
+            <i class="bi bi-arrow-left"></i>Back
+        </a>
         </div>
     </div>
 @endsection
