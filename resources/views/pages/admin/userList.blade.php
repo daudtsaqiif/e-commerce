@@ -22,7 +22,13 @@
                         <td>{{ $u->name }}</td>
                         <td>{{ $u->email }}</td>
                         <td>
-                            
+                            <form action="{{ route('admin.resetPassword', $u->id)  }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-success">
+                                    <i class="bi bi-pencil"></i>
+                                    Reset Password</button>
+                            </form>
                         </td>
                     </tr>
                 @empty
