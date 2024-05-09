@@ -43,7 +43,7 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.my-transaction.index') }}" class="{{ request()->routeIs('admin.my-transaction.index') ? 'active' : '' }}" >
-                        <i class="bi bi-circle"></i><span>Data Product</span>
+                        <i class="bi bi-circle"></i><span>My Transaction</span>
                     </a>
                 </li>
             </ul>
