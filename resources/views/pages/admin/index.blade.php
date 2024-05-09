@@ -76,6 +76,9 @@
                                 <h6>{{ $user }}</h6>
                             </div>
                         </div>
+                        <div class="">
+                            <a href="{{ route('admin.userList') }}" class="btn btn-primary">See All User</a>
+                        </div>  
                     </div>
                 </div>
                 {{-- end User card --}}
