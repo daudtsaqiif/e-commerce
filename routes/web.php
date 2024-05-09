@@ -30,5 +30,6 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
 Route::name('user.')->prefix('user')->middleware('user')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/updatePassword', [App\Http\Controllers\User\DashboardController::class, 'updatePassword'])->name('updatePassword');
+    Route::resource('/my-transaction',MyTransactionController::class)->only(['index', 'show']);
     Route::put('/changePassword', [App\Http\Controllers\User\DashboardController::class, 'changePassword'])->name('changePassword');
 });
