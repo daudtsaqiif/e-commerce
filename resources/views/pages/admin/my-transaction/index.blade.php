@@ -26,14 +26,29 @@
                 <thead>
                     <tr>
                         <td>No</td>
-                        <td>Name Accout</td>
-                        <td>Name</td>
+                        <td>Name Account</td>
+                        <td>Reciever Name</td>
                         <td>Email</td>
                         <td>Phone</td>
                         <td>Total Price</td>
                         <td>Action</td>
                     </tr>
                 </thead>
+                <tbody>
+                    @forelse ($myTransaction as $row )
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ auth()->user()->name }}</td>
+                        <td>{{ $row->user->name }}</td>
+                        <td>{{ $row->user->email }}</td>
+                        <td>{{ $row->user->phone }}</td>
+                        <td>{{  }}</td>
+                        <td>Show</td>
+                    </tr>
+                    @empty
+                        
+                    @endforelse
+                </tbody>
             </table>
         </div>
     </div>
