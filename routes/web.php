@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Adim\MyTransactionController;
-use App\Http\Controllers\Adim\TransactionController;
+use App\Http\Controllers\Admin\MyTransactionController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProducGalleryController;
 use App\Http\Controllers\Admin\ProductController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,7 +24,7 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/product', ProductController::class);
     Route::resource('/product.gallery', ProducGalleryController::class)->except(['create', 'show', 'edit', 'update']);
     Route::resource('/transaction', TransactionController::class);
-    Route::resource('/my-transaction', MyTransactionController::class)->only(['index', 'show']);
+    Route::resource('/my-transaction',MyTransactionController::class)->only(['index', 'show']);
 });
 
 Route::name('user.')->prefix('user')->middleware('user')->group(function () {
