@@ -22,11 +22,16 @@
         <div class="card-body">
             <div class="card-title"><i class="bi bi-cart"></i> List Transaction </div>
 
-            <table class="table-striped table-hover table-bordered">
+            <table class="table table-striped table-hover table-bordered datatable">
                 <thead>
                     <tr>
                         <td>No</td>
+                        <td>Name Accout</td>
                         <td>Name</td>
+                        <td>Email</td>
+                        <td>Phone</td>
+                        <td>Total Price</td>
+                        <td>Action</td>
                     </tr>
                 </thead>
             </table>
