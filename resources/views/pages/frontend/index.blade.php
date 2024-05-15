@@ -2,7 +2,7 @@
 
 @section('title', 'LuxSpace')
 @section('content')
-<!-- START: JUST ARRIVED -->
+
 <section class="flex flex-col py-16">
     <div class="container mx-auto mb-4">
         <div class="flex justify-center text-center mb-4">
@@ -200,5 +200,5 @@
         <!-- </div> -->
     </div>
 </section>
-<!-- END: JUST ARRIVED --> 
+
 @endsection
