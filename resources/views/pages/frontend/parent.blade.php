@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>LuxSpace</title>
+    <title>@yield('title')</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -12,11 +12,11 @@
     <meta property="og:image" content="" />
 
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="apple-touch-icon" href="{{asset('frontend/images/content/favicon.png')}}" />
+    <link rel="apple-touch-icon" href="{{ asset('frontend/images/content/favicon.png') }}" />
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" href="{{asset('frontend/images/content/favicon.png')}}" />
+    <link rel="icon" href="{{ asset('frontend/images/content/favicon.png') }}" />
 
     <meta name="theme-color" content="#000" />
     <link rel="icon" href="favicon.ico">
@@ -31,7 +31,8 @@
         <div class="container mx-auto py-5">
             <div class="flex flex-stretch items-center">
                 <div class="w-56 items-center flex">
-                    <img src="{{ asset('frontend/images/content/logo.png') }}" alt="Luxspace | Fulfill your house with beautiful furniture" />
+                    <img src="{{ asset('frontend/images/content/logo.png') }}"
+                        alt="Luxspace | Fulfill your house with beautiful furniture" />
                 </div>
                 <div class="w-full"></div>
                 <div class="w-auto">
@@ -145,7 +146,7 @@
             <div class="grid grid-rows-2 grid-cols-9 gap-4">
                 <div class="relative col-span-9 row-span-1 md:col-span-4 card" style="height: 180px">
                     <div class="card-shadow rounded-xl">
-                        <img src="{{asset('frontend/images/content/image-catalog-1.png')}}" alt=""
+                        <img src="{{ asset('frontend/images/content/image-catalog-1.png') }}" alt=""
                             class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl" />
                     </div>
                     <div class="overlay left-0 top-0 bottom-0 flex justify-center flex-col pl-48 md:pl-72">
@@ -158,7 +159,7 @@
                 </div>
                 <div class="relative col-span-9 row-span-1 md:col-span-2 md:row-span-2 card">
                     <div class="card-shadow rounded-xl">
-                        <img src="{{asset('frontend/images/content/image-catalog-3.png')}}" alt=""
+                        <img src="{{ asset('frontend/images/content/image-catalog-3.png') }}" alt=""
                             class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl" />
                     </div>
                     <div
@@ -172,7 +173,7 @@
                 </div>
                 <div class="relative col-span-9 row-span-1 md:col-span-3 md:row-span-2 card">
                     <div class="card-shadow rounded-xl">
-                        <img src="{{asset('frontend/images/content/image-catalog-4.png')}}" alt=""
+                        <img src="{{ asset('frontend/images/content/image-catalog-4.png') }}" alt=""
                             class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl" />
                     </div>
                     <div
@@ -186,7 +187,7 @@
                 </div>
                 <div class="relative col-span-9 row-span-1 md:col-span-4 card">
                     <div class="card-shadow rounded-xl">
-                        <img src="{{asset('frontend/images/content/image-catalog-2.png')}}" alt=""
+                        <img src="{{ asset('frontend/images/content/image-catalog-2.png') }}" alt=""
                             class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl" />
                     </div>
                     <div class="overlay left-0 top-0 bottom-0 flex justify-center flex-col pl-48 md:pl-72">
@@ -202,315 +203,35 @@
     </section>
     <!-- END: BROWSE THE ROOM -->
 
-    <!-- START: JUST ARRIVED -->
-    <section class="flex flex-col py-16">
-        <div class="container mx-auto mb-4">
-            <div class="flex justify-center text-center mb-4">
-                <h3 class="text-2xl capitalize font-semibold">
-                    Just Arrived <br class="" />this summer for you
-                </h3>
-            </div>
-        </div>
-        <div class="overflow-x-hidden px-4" id="carousel">
-            <div class="container mx-auto"></div>
-            <!-- <div class="overflow-hidden z-10"> -->
-            <div class="flex -mx-4 flex-row relative">
-                <!-- START: JUST ARRIVED ROW 1 -->
-                <div class="px-4 relative card group">
-                    <div class="rounded-xl overflow-hidden card-shadow relative" style="width: 287px; height: 386px">
-                        <div
-                            class="absolute opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center w-full h-full bg-black bg-opacity-35">
-                            <div class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center">
-                                <svg class="fill-current" width="43" height="24" viewBox="0 0 43 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M41.6557 10.0065C39.2794 6.95958 36.2012 4.43931 32.7542 2.71834C29.2355 0.961548 25.4501 0.0500333 21.4985 0.00223289C21.3896 -0.000744296 20.9526 -0.000744296 20.8438 0.00223289C16.8923 0.050116 13.1068 0.961548 9.58807 2.71834C6.14106 4.43931 3.06307 6.9595 0.686613 10.0065C-0.228871 11.1802 -0.228871 12.8198 0.686613 13.9935C3.06299 17.0404 6.14106 19.5607 9.58807 21.2817C13.1068 23.0385 16.8922 23.95 20.8438 23.9978C20.9526 24.0007 21.3896 24.0007 21.4985 23.9978C25.45 23.9499 29.2355 23.0385 32.7542 21.2817C36.2012 19.5607 39.2793 17.0405 41.6557 13.9935C42.5712 12.8196 42.5712 11.1802 41.6557 10.0065ZM10.3576 19.7406C7.13892 18.1335 4.26445 15.7799 2.04487 12.9341C1.61591 12.3841 1.61591 11.6159 2.04487 11.0659C4.26436 8.22009 7.13883 5.86646 10.3576 4.25944C11.2717 3.80311 12.2053 3.40846 13.1561 3.07436C10.71 5.27317 9.16886 8.45975 9.16886 12C9.16886 15.5403 10.7101 18.7272 13.1564 20.9259C12.2056 20.5918 11.2718 20.197 10.3576 19.7406ZM21.1712 22.2798C15.5028 22.2798 10.8913 17.6683 10.8913 11.9999C10.8913 6.33148 15.5028 1.72007 21.1712 1.72007C26.8396 1.72007 31.4511 6.33156 31.4511 12C31.4511 17.6684 26.8396 22.2798 21.1712 22.2798ZM40.2976 12.9341C38.0781 15.7798 35.2036 18.1335 31.9849 19.7405C31.0718 20.1963 30.1388 20.5892 29.1892 20.923C31.6336 18.7243 33.1736 15.5387 33.1736 11.9999C33.1736 8.45918 31.6321 5.27218 29.1856 3.07336C30.1366 3.40755 31.0705 3.80269 31.9849 4.25928C35.2036 5.86629 38.0781 8.21993 40.2976 11.0657C40.7265 11.6158 40.7265 12.384 40.2976 12.9341Z" />
-                                    <path
-                                        d="M21.1712 7.60071C18.7454 7.60071 16.772 9.57417 16.772 11.9999C16.772 14.4257 18.7454 16.3991 21.1712 16.3991C23.5969 16.3991 25.5704 14.4257 25.5704 11.9999C25.5705 9.57417 23.597 7.60071 21.1712 7.60071ZM21.1712 14.6767C19.6952 14.6767 18.4944 13.476 18.4944 11.9999C18.4944 10.5239 19.6951 9.32318 21.1712 9.32318C22.6471 9.32318 23.8479 10.5239 23.8479 11.9999C23.848 13.476 22.6471 14.6767 21.1712 14.6767Z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <img src="{{asset('frontend/images/content/image-arrived-1.png')}}" alt=""
-                            class="w-full h-full object-cover object-center" />
-                    </div>
-                    <h5 class="text-lg font-semibold mt-4">Cangkir Mauttie</h5>
-                    <span class="">IDR 89.300</span>
-                    <a href="#details.html" class="stretched-link">
-                        <!-- fake children -->
-                    </a>
-                </div>
-                <!-- END: JUST ARRIVED ROW 1 -->
-
-                <!-- START: JUST ARRIVED ROW 2 -->
-                <div class="px-4 relative card group">
-                    <div class="rounded-xl overflow-hidden card-shadow relative" style="width: 287px; height: 386px">
-                        <div
-                            class="absolute opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center w-full h-full bg-black bg-opacity-35">
-                            <div class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center">
-                                <svg class="fill-current" width="43" height="24" viewBox="0 0 43 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M41.6557 10.0065C39.2794 6.95958 36.2012 4.43931 32.7542 2.71834C29.2355 0.961548 25.4501 0.0500333 21.4985 0.00223289C21.3896 -0.000744296 20.9526 -0.000744296 20.8438 0.00223289C16.8923 0.050116 13.1068 0.961548 9.58807 2.71834C6.14106 4.43931 3.06307 6.9595 0.686613 10.0065C-0.228871 11.1802 -0.228871 12.8198 0.686613 13.9935C3.06299 17.0404 6.14106 19.5607 9.58807 21.2817C13.1068 23.0385 16.8922 23.95 20.8438 23.9978C20.9526 24.0007 21.3896 24.0007 21.4985 23.9978C25.45 23.9499 29.2355 23.0385 32.7542 21.2817C36.2012 19.5607 39.2793 17.0405 41.6557 13.9935C42.5712 12.8196 42.5712 11.1802 41.6557 10.0065ZM10.3576 19.7406C7.13892 18.1335 4.26445 15.7799 2.04487 12.9341C1.61591 12.3841 1.61591 11.6159 2.04487 11.0659C4.26436 8.22009 7.13883 5.86646 10.3576 4.25944C11.2717 3.80311 12.2053 3.40846 13.1561 3.07436C10.71 5.27317 9.16886 8.45975 9.16886 12C9.16886 15.5403 10.7101 18.7272 13.1564 20.9259C12.2056 20.5918 11.2718 20.197 10.3576 19.7406ZM21.1712 22.2798C15.5028 22.2798 10.8913 17.6683 10.8913 11.9999C10.8913 6.33148 15.5028 1.72007 21.1712 1.72007C26.8396 1.72007 31.4511 6.33156 31.4511 12C31.4511 17.6684 26.8396 22.2798 21.1712 22.2798ZM40.2976 12.9341C38.0781 15.7798 35.2036 18.1335 31.9849 19.7405C31.0718 20.1963 30.1388 20.5892 29.1892 20.923C31.6336 18.7243 33.1736 15.5387 33.1736 11.9999C33.1736 8.45918 31.6321 5.27218 29.1856 3.07336C30.1366 3.40755 31.0705 3.80269 31.9849 4.25928C35.2036 5.86629 38.0781 8.21993 40.2976 11.0657C40.7265 11.6158 40.7265 12.384 40.2976 12.9341Z" />
-                                    <path
-                                        d="M21.1712 7.60071C18.7454 7.60071 16.772 9.57417 16.772 11.9999C16.772 14.4257 18.7454 16.3991 21.1712 16.3991C23.5969 16.3991 25.5704 14.4257 25.5704 11.9999C25.5705 9.57417 23.597 7.60071 21.1712 7.60071ZM21.1712 14.6767C19.6952 14.6767 18.4944 13.476 18.4944 11.9999C18.4944 10.5239 19.6951 9.32318 21.1712 9.32318C22.6471 9.32318 23.8479 10.5239 23.8479 11.9999C23.848 13.476 22.6471 14.6767 21.1712 14.6767Z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <img src="{{asset('frontend/images/content/image-arrived-2.png')}}" alt=""
-                            class="w-full h-full object-cover object-center" />
-                    </div>
-                    <h5 class="text-lg font-semibold mt-4">Bankyu Minimay</h5>
-                    <span class="">IDR 67.899</span>
-                    <a href="#details.html" class="stretched-link">
-                        <!-- fake children -->
-                    </a>
-                </div>
-                <!-- END: JUST ARRIVED ROW 2 -->
-
-                <!-- START: JUST ARRIVED ROW 3 -->
-                <div class="px-4 relative card group">
-                    <div class="rounded-xl overflow-hidden card-shadow relative" style="width: 287px; height: 386px">
-                        <div
-                            class="absolute opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center w-full h-full bg-black bg-opacity-35">
-                            <div class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center">
-                                <svg class="fill-current" width="43" height="24" viewBox="0 0 43 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M41.6557 10.0065C39.2794 6.95958 36.2012 4.43931 32.7542 2.71834C29.2355 0.961548 25.4501 0.0500333 21.4985 0.00223289C21.3896 -0.000744296 20.9526 -0.000744296 20.8438 0.00223289C16.8923 0.050116 13.1068 0.961548 9.58807 2.71834C6.14106 4.43931 3.06307 6.9595 0.686613 10.0065C-0.228871 11.1802 -0.228871 12.8198 0.686613 13.9935C3.06299 17.0404 6.14106 19.5607 9.58807 21.2817C13.1068 23.0385 16.8922 23.95 20.8438 23.9978C20.9526 24.0007 21.3896 24.0007 21.4985 23.9978C25.45 23.9499 29.2355 23.0385 32.7542 21.2817C36.2012 19.5607 39.2793 17.0405 41.6557 13.9935C42.5712 12.8196 42.5712 11.1802 41.6557 10.0065ZM10.3576 19.7406C7.13892 18.1335 4.26445 15.7799 2.04487 12.9341C1.61591 12.3841 1.61591 11.6159 2.04487 11.0659C4.26436 8.22009 7.13883 5.86646 10.3576 4.25944C11.2717 3.80311 12.2053 3.40846 13.1561 3.07436C10.71 5.27317 9.16886 8.45975 9.16886 12C9.16886 15.5403 10.7101 18.7272 13.1564 20.9259C12.2056 20.5918 11.2718 20.197 10.3576 19.7406ZM21.1712 22.2798C15.5028 22.2798 10.8913 17.6683 10.8913 11.9999C10.8913 6.33148 15.5028 1.72007 21.1712 1.72007C26.8396 1.72007 31.4511 6.33156 31.4511 12C31.4511 17.6684 26.8396 22.2798 21.1712 22.2798ZM40.2976 12.9341C38.0781 15.7798 35.2036 18.1335 31.9849 19.7405C31.0718 20.1963 30.1388 20.5892 29.1892 20.923C31.6336 18.7243 33.1736 15.5387 33.1736 11.9999C33.1736 8.45918 31.6321 5.27218 29.1856 3.07336C30.1366 3.40755 31.0705 3.80269 31.9849 4.25928C35.2036 5.86629 38.0781 8.21993 40.2976 11.0657C40.7265 11.6158 40.7265 12.384 40.2976 12.9341Z" />
-                                    <path
-                                        d="M21.1712 7.60071C18.7454 7.60071 16.772 9.57417 16.772 11.9999C16.772 14.4257 18.7454 16.3991 21.1712 16.3991C23.5969 16.3991 25.5704 14.4257 25.5704 11.9999C25.5705 9.57417 23.597 7.60071 21.1712 7.60071ZM21.1712 14.6767C19.6952 14.6767 18.4944 13.476 18.4944 11.9999C18.4944 10.5239 19.6951 9.32318 21.1712 9.32318C22.6471 9.32318 23.8479 10.5239 23.8479 11.9999C23.848 13.476 22.6471 14.6767 21.1712 14.6767Z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <img src="{{asset('frontend/images/content/image-arrived-3.png')}}" alt=""
-                            class="w-full h-full object-cover object-center" />
-                    </div>
-                    <h5 class="text-lg font-semibold mt-4">Buku Sidu Edition</h5>
-                    <span class="">IDR 120.699</span>
-                    <a href="#details.html" class="stretched-link">
-                        <!-- fake children -->
-                    </a>
-                </div>
-                <!-- END: JUST ARRIVED ROW 3 -->
-
-                <!-- START: JUST ARRIVED ROW 4 -->
-                <div class="px-4 relative card group">
-                    <div class="rounded-xl overflow-hidden card-shadow relative" style="width: 287px; height: 386px">
-                        <div
-                            class="absolute opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center w-full h-full bg-black bg-opacity-35">
-                            <div class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center">
-                                <svg class="fill-current" width="43" height="24" viewBox="0 0 43 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M41.6557 10.0065C39.2794 6.95958 36.2012 4.43931 32.7542 2.71834C29.2355 0.961548 25.4501 0.0500333 21.4985 0.00223289C21.3896 -0.000744296 20.9526 -0.000744296 20.8438 0.00223289C16.8923 0.050116 13.1068 0.961548 9.58807 2.71834C6.14106 4.43931 3.06307 6.9595 0.686613 10.0065C-0.228871 11.1802 -0.228871 12.8198 0.686613 13.9935C3.06299 17.0404 6.14106 19.5607 9.58807 21.2817C13.1068 23.0385 16.8922 23.95 20.8438 23.9978C20.9526 24.0007 21.3896 24.0007 21.4985 23.9978C25.45 23.9499 29.2355 23.0385 32.7542 21.2817C36.2012 19.5607 39.2793 17.0405 41.6557 13.9935C42.5712 12.8196 42.5712 11.1802 41.6557 10.0065ZM10.3576 19.7406C7.13892 18.1335 4.26445 15.7799 2.04487 12.9341C1.61591 12.3841 1.61591 11.6159 2.04487 11.0659C4.26436 8.22009 7.13883 5.86646 10.3576 4.25944C11.2717 3.80311 12.2053 3.40846 13.1561 3.07436C10.71 5.27317 9.16886 8.45975 9.16886 12C9.16886 15.5403 10.7101 18.7272 13.1564 20.9259C12.2056 20.5918 11.2718 20.197 10.3576 19.7406ZM21.1712 22.2798C15.5028 22.2798 10.8913 17.6683 10.8913 11.9999C10.8913 6.33148 15.5028 1.72007 21.1712 1.72007C26.8396 1.72007 31.4511 6.33156 31.4511 12C31.4511 17.6684 26.8396 22.2798 21.1712 22.2798ZM40.2976 12.9341C38.0781 15.7798 35.2036 18.1335 31.9849 19.7405C31.0718 20.1963 30.1388 20.5892 29.1892 20.923C31.6336 18.7243 33.1736 15.5387 33.1736 11.9999C33.1736 8.45918 31.6321 5.27218 29.1856 3.07336C30.1366 3.40755 31.0705 3.80269 31.9849 4.25928C35.2036 5.86629 38.0781 8.21993 40.2976 11.0657C40.7265 11.6158 40.7265 12.384 40.2976 12.9341Z" />
-                                    <path
-                                        d="M21.1712 7.60071C18.7454 7.60071 16.772 9.57417 16.772 11.9999C16.772 14.4257 18.7454 16.3991 21.1712 16.3991C23.5969 16.3991 25.5704 14.4257 25.5704 11.9999C25.5705 9.57417 23.597 7.60071 21.1712 7.60071ZM21.1712 14.6767C19.6952 14.6767 18.4944 13.476 18.4944 11.9999C18.4944 10.5239 19.6951 9.32318 21.1712 9.32318C22.6471 9.32318 23.8479 10.5239 23.8479 11.9999C23.848 13.476 22.6471 14.6767 21.1712 14.6767Z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <img src="{{asset('frontend/images/content/image-arrived-4.png')}}" alt=""
-                            class="w-full h-full object-cover object-center" />
-                    </div>
-                    <h5 class="text-lg font-semibold mt-4">Watch Notes X</h5>
-                    <span class="">IDR 1.973.000</span>
-                    <a href="#details.html" class="stretched-link">
-                        <!-- fake children -->
-                    </a>
-                </div>
-                <!-- END: JUST ARRIVED ROW 4 -->
-
-                <!-- START: JUST ARRIVED ROW 5 -->
-                <div class="px-4 relative card group">
-                    <div class="rounded-xl overflow-hidden card-shadow relative" style="width: 287px; height: 386px">
-                        <div
-                            class="absolute opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center w-full h-full bg-black bg-opacity-35">
-                            <div class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center">
-                                <svg class="fill-current" width="43" height="24" viewBox="0 0 43 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M41.6557 10.0065C39.2794 6.95958 36.2012 4.43931 32.7542 2.71834C29.2355 0.961548 25.4501 0.0500333 21.4985 0.00223289C21.3896 -0.000744296 20.9526 -0.000744296 20.8438 0.00223289C16.8923 0.050116 13.1068 0.961548 9.58807 2.71834C6.14106 4.43931 3.06307 6.9595 0.686613 10.0065C-0.228871 11.1802 -0.228871 12.8198 0.686613 13.9935C3.06299 17.0404 6.14106 19.5607 9.58807 21.2817C13.1068 23.0385 16.8922 23.95 20.8438 23.9978C20.9526 24.0007 21.3896 24.0007 21.4985 23.9978C25.45 23.9499 29.2355 23.0385 32.7542 21.2817C36.2012 19.5607 39.2793 17.0405 41.6557 13.9935C42.5712 12.8196 42.5712 11.1802 41.6557 10.0065ZM10.3576 19.7406C7.13892 18.1335 4.26445 15.7799 2.04487 12.9341C1.61591 12.3841 1.61591 11.6159 2.04487 11.0659C4.26436 8.22009 7.13883 5.86646 10.3576 4.25944C11.2717 3.80311 12.2053 3.40846 13.1561 3.07436C10.71 5.27317 9.16886 8.45975 9.16886 12C9.16886 15.5403 10.7101 18.7272 13.1564 20.9259C12.2056 20.5918 11.2718 20.197 10.3576 19.7406ZM21.1712 22.2798C15.5028 22.2798 10.8913 17.6683 10.8913 11.9999C10.8913 6.33148 15.5028 1.72007 21.1712 1.72007C26.8396 1.72007 31.4511 6.33156 31.4511 12C31.4511 17.6684 26.8396 22.2798 21.1712 22.2798ZM40.2976 12.9341C38.0781 15.7798 35.2036 18.1335 31.9849 19.7405C31.0718 20.1963 30.1388 20.5892 29.1892 20.923C31.6336 18.7243 33.1736 15.5387 33.1736 11.9999C33.1736 8.45918 31.6321 5.27218 29.1856 3.07336C30.1366 3.40755 31.0705 3.80269 31.9849 4.25928C35.2036 5.86629 38.0781 8.21993 40.2976 11.0657C40.7265 11.6158 40.7265 12.384 40.2976 12.9341Z" />
-                                    <path
-                                        d="M21.1712 7.60071C18.7454 7.60071 16.772 9.57417 16.772 11.9999C16.772 14.4257 18.7454 16.3991 21.1712 16.3991C23.5969 16.3991 25.5704 14.4257 25.5704 11.9999C25.5705 9.57417 23.597 7.60071 21.1712 7.60071ZM21.1712 14.6767C19.6952 14.6767 18.4944 13.476 18.4944 11.9999C18.4944 10.5239 19.6951 9.32318 21.1712 9.32318C22.6471 9.32318 23.8479 10.5239 23.8479 11.9999C23.848 13.476 22.6471 14.6767 21.1712 14.6767Z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <img src="{{asset('frontend/images/content/image-arrived-5.png')}}" alt=""
-                            class="w-full h-full object-cover object-center" />
-                    </div>
-                    <h5 class="text-lg font-semibold mt-4">Racking Plants</h5>
-                    <span class="">IDR 599.400</span>
-                    <a href="#details.html" class="stretched-link">
-                        <!-- fake children -->
-                    </a>
-                </div>
-                <!-- END: JUST ARRIVED ROW 5 -->
-
-                <!-- START: JUST ARRIVED ROW 3 -->
-                <div class="px-4 relative card group">
-                    <div class="rounded-xl overflow-hidden card-shadow relative" style="width: 287px; height: 386px">
-                        <div
-                            class="absolute opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center w-full h-full bg-black bg-opacity-35">
-                            <div class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center">
-                                <svg class="fill-current" width="43" height="24" viewBox="0 0 43 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M41.6557 10.0065C39.2794 6.95958 36.2012 4.43931 32.7542 2.71834C29.2355 0.961548 25.4501 0.0500333 21.4985 0.00223289C21.3896 -0.000744296 20.9526 -0.000744296 20.8438 0.00223289C16.8923 0.050116 13.1068 0.961548 9.58807 2.71834C6.14106 4.43931 3.06307 6.9595 0.686613 10.0065C-0.228871 11.1802 -0.228871 12.8198 0.686613 13.9935C3.06299 17.0404 6.14106 19.5607 9.58807 21.2817C13.1068 23.0385 16.8922 23.95 20.8438 23.9978C20.9526 24.0007 21.3896 24.0007 21.4985 23.9978C25.45 23.9499 29.2355 23.0385 32.7542 21.2817C36.2012 19.5607 39.2793 17.0405 41.6557 13.9935C42.5712 12.8196 42.5712 11.1802 41.6557 10.0065ZM10.3576 19.7406C7.13892 18.1335 4.26445 15.7799 2.04487 12.9341C1.61591 12.3841 1.61591 11.6159 2.04487 11.0659C4.26436 8.22009 7.13883 5.86646 10.3576 4.25944C11.2717 3.80311 12.2053 3.40846 13.1561 3.07436C10.71 5.27317 9.16886 8.45975 9.16886 12C9.16886 15.5403 10.7101 18.7272 13.1564 20.9259C12.2056 20.5918 11.2718 20.197 10.3576 19.7406ZM21.1712 22.2798C15.5028 22.2798 10.8913 17.6683 10.8913 11.9999C10.8913 6.33148 15.5028 1.72007 21.1712 1.72007C26.8396 1.72007 31.4511 6.33156 31.4511 12C31.4511 17.6684 26.8396 22.2798 21.1712 22.2798ZM40.2976 12.9341C38.0781 15.7798 35.2036 18.1335 31.9849 19.7405C31.0718 20.1963 30.1388 20.5892 29.1892 20.923C31.6336 18.7243 33.1736 15.5387 33.1736 11.9999C33.1736 8.45918 31.6321 5.27218 29.1856 3.07336C30.1366 3.40755 31.0705 3.80269 31.9849 4.25928C35.2036 5.86629 38.0781 8.21993 40.2976 11.0657C40.7265 11.6158 40.7265 12.384 40.2976 12.9341Z" />
-                                    <path
-                                        d="M21.1712 7.60071C18.7454 7.60071 16.772 9.57417 16.772 11.9999C16.772 14.4257 18.7454 16.3991 21.1712 16.3991C23.5969 16.3991 25.5704 14.4257 25.5704 11.9999C25.5705 9.57417 23.597 7.60071 21.1712 7.60071ZM21.1712 14.6767C19.6952 14.6767 18.4944 13.476 18.4944 11.9999C18.4944 10.5239 19.6951 9.32318 21.1712 9.32318C22.6471 9.32318 23.8479 10.5239 23.8479 11.9999C23.848 13.476 22.6471 14.6767 21.1712 14.6767Z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <img src="{{asset('frontend/images/content/image-arrived-3.png')}}" alt=""
-                            class="w-full h-full object-cover object-center" />
-                    </div>
-                    <h5 class="text-lg font-semibold mt-4">Racking Plants</h5>
-                    <span class="">IDR 599.400</span>
-                    <a href="#details.html" class="stretched-link">
-                        <!-- fake children -->
-                    </a>
-                </div>
-                <!-- END: JUST ARRIVED ROW 3 -->
-
-                <!-- START: JUST ARRIVED ROW 1 -->
-                <div class="px-4 relative card group">
-                    <div class="rounded-xl overflow-hidden card-shadow relative" style="width: 287px; height: 386px">
-                        <div
-                            class="absolute opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center w-full h-full bg-black bg-opacity-35">
-                            <div class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center">
-                                <svg class="fill-current" width="43" height="24" viewBox="0 0 43 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M41.6557 10.0065C39.2794 6.95958 36.2012 4.43931 32.7542 2.71834C29.2355 0.961548 25.4501 0.0500333 21.4985 0.00223289C21.3896 -0.000744296 20.9526 -0.000744296 20.8438 0.00223289C16.8923 0.050116 13.1068 0.961548 9.58807 2.71834C6.14106 4.43931 3.06307 6.9595 0.686613 10.0065C-0.228871 11.1802 -0.228871 12.8198 0.686613 13.9935C3.06299 17.0404 6.14106 19.5607 9.58807 21.2817C13.1068 23.0385 16.8922 23.95 20.8438 23.9978C20.9526 24.0007 21.3896 24.0007 21.4985 23.9978C25.45 23.9499 29.2355 23.0385 32.7542 21.2817C36.2012 19.5607 39.2793 17.0405 41.6557 13.9935C42.5712 12.8196 42.5712 11.1802 41.6557 10.0065ZM10.3576 19.7406C7.13892 18.1335 4.26445 15.7799 2.04487 12.9341C1.61591 12.3841 1.61591 11.6159 2.04487 11.0659C4.26436 8.22009 7.13883 5.86646 10.3576 4.25944C11.2717 3.80311 12.2053 3.40846 13.1561 3.07436C10.71 5.27317 9.16886 8.45975 9.16886 12C9.16886 15.5403 10.7101 18.7272 13.1564 20.9259C12.2056 20.5918 11.2718 20.197 10.3576 19.7406ZM21.1712 22.2798C15.5028 22.2798 10.8913 17.6683 10.8913 11.9999C10.8913 6.33148 15.5028 1.72007 21.1712 1.72007C26.8396 1.72007 31.4511 6.33156 31.4511 12C31.4511 17.6684 26.8396 22.2798 21.1712 22.2798ZM40.2976 12.9341C38.0781 15.7798 35.2036 18.1335 31.9849 19.7405C31.0718 20.1963 30.1388 20.5892 29.1892 20.923C31.6336 18.7243 33.1736 15.5387 33.1736 11.9999C33.1736 8.45918 31.6321 5.27218 29.1856 3.07336C30.1366 3.40755 31.0705 3.80269 31.9849 4.25928C35.2036 5.86629 38.0781 8.21993 40.2976 11.0657C40.7265 11.6158 40.7265 12.384 40.2976 12.9341Z" />
-                                    <path
-                                        d="M21.1712 7.60071C18.7454 7.60071 16.772 9.57417 16.772 11.9999C16.772 14.4257 18.7454 16.3991 21.1712 16.3991C23.5969 16.3991 25.5704 14.4257 25.5704 11.9999C25.5705 9.57417 23.597 7.60071 21.1712 7.60071ZM21.1712 14.6767C19.6952 14.6767 18.4944 13.476 18.4944 11.9999C18.4944 10.5239 19.6951 9.32318 21.1712 9.32318C22.6471 9.32318 23.8479 10.5239 23.8479 11.9999C23.848 13.476 22.6471 14.6767 21.1712 14.6767Z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <img src="{{asset('frontend/images/content/image-arrived-1.png')}}" alt=""
-                            class="w-full h-full object-cover object-center" />
-                    </div>
-                    <h5 class="text-lg font-semibold mt-4">Racking Plants</h5>
-                    <span class="">IDR 599.400</span>
-                    <a href="#details.html" class="stretched-link">
-                        <!-- fake children -->
-                    </a>
-                </div>
-                <!-- END: JUST ARRIVED ROW 1 -->
-            </div>
-            <!-- </div> -->
-        </div>
-    </section>
-    <!-- END: JUST ARRIVED -->
+    @yield('content')
 
     <!-- START: CLIENTS -->
     <section class="container mx-auto">
         <div class="flex justify-center flex-wrap">
             <div class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0">
-                <img src="{{asset('frontend/images/content/logo-adobe.svg')}}" alt="" class="mx-auto" />
+                <img src="{{ asset('frontend/images/content/logo-adobe.svg') }}" alt="" class="mx-auto" />
             </div>
             <div class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0">
-                <img src="{{asset('frontend/images/content/logo-ikea.svg')}}" alt="" class="mx-auto" />
+                <img src="{{ asset('frontend/images/content/logo-ikea.svg') }}" alt="" class="mx-auto" />
             </div>
             <div class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0">
-                <img src="{{asset('frontend/images/content/logo-hermanmiller.svg')}}" alt="" class="mx-auto" />
+                <img src="{{ asset('frontend/images/content/logo-hermanmiller.svg') }}" alt=""
+                    class="mx-auto" />
             </div>
             <div class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0">
-                <img src="{{asset('frontend/images/content/logo-miele.svg')}}" alt="" class="mx-auto" />
+                <img src="{{ asset('frontend/images/content/logo-miele.svg') }}" alt="" class="mx-auto" />
             </div>
         </div>
     </section>
     <!-- END: CLIENTS -->
 
-    <!-- START: ASIDE MENU -->
-    <section class="">
-        <div class="border-t border-b border-gray-200 py-12 mt-16 px-4">
-            <div class="flex justify-center mb-8">
-                <img src="{{ asset('frontend/images/content/logo.png') }}" alt="Luxspace | Fulfill your house with beautiful furniture" />
-            </div>
-            <aside class="container mx-auto">
-                <div class="flex flex-wrap -mx-4 justify-center">
-                    <div class="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">
-                        <h5 class="text-lg font-semibold mb-2 relative">Overview</h5>
-                        <ul class="h-0 invisible md:h-auto md:visible overflow-hidden">
-                            <li>
-                                <a href="#" class="hover:underline py-1 block">Shipping</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:underline py-1 block">Refund</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:underline py-1 block">Promotion</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">
-                        <h5 class="text-lg font-semibold mb-2 relative">Company</h5>
-                        <ul class="h-0 invisible md:h-auto md:visible overflow-hidden">
-                            <li>
-                                <a href="#" class="hover:underline py-1 block">About</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:underline py-1 block">Career</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:underline py-1 block">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">
-                        <h5 class="text-lg font-semibold mb-2 relative">Explore</h5>
-                        <ul class="h-0 invisible md:h-auto md:visible overflow-hidden">
-                            <li>
-                                <a href="#" class="hover:underline py-1 block">Terms & Conds</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:underline py-1 block">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:underline py-1 block">For Developer</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="px-4 w-full md:w-3/12 mb-4 md:mb-0">
-                        <h5 class="text-lg font-semibold mb-2 relative">
-                            Special Letter
-                        </h5>
-                        <form action="#">
-                            <label class="relative w-full">
-                                <input type="text"
-                                    class="bg-gray-100 rounded-xl py-3 px-5 w-full focus:outline-none"
-                                    placeholder="Your email adress" />
-                                <button class="bg-pink-400 absolute rounded-xl right-0 p-3">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M23.6177 0.411971C23.6163 0.410624 23.6152 0.409187 23.6138 0.407839C23.6124 0.406492 23.6109 0.405414 23.6095 0.404157C23.236 0.049307 22.7002 -0.0573008 22.2098 0.126411L0.833871 8.13353C0.268743 8.34518 -0.0623361 8.87521 0.0098048 9.4523C0.0821332 10.0294 0.53462 10.4694 1.13589 10.547L11.5833 11.8968C11.6028 11.8994 11.6185 11.9143 11.6212 11.9332L13.0301 21.9417C13.1112 22.5177 13.5704 22.9512 14.1729 23.0204C14.2279 23.0268 14.2824 23.0298 14.3364 23.0298C14.8735 23.0298 15.3486 22.7229 15.5495 22.231L23.9077 1.75274C24.0994 1.28302 23.9882 0.76983 23.6177 0.411971ZM1.30534 9.34475C1.2819 9.34169 1.27136 9.34039 1.26728 9.30788C1.26325 9.27537 1.27319 9.27159 1.29508 9.26347L21.2946 1.77187L11.9404 10.7333C11.8794 10.7163 1.30534 9.34475 1.30534 9.34475ZM14.37 21.7892C14.3614 21.8102 14.358 21.8198 14.3236 21.8158C14.2897 21.8119 14.2883 21.8017 14.2852 21.7794C14.2852 21.7794 12.8535 11.6495 12.8358 11.5911L22.19 2.62972L14.37 21.7892Z"
-                                            fill="white" />
-                                    </svg>
-                                </button>
-                            </label>
-                        </form>
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </section>
-    <!-- END: ASIDE MENU -->
-
-    <!-- START: FOOTER -->
-    <footer class="flex text-center px-4 py-8 justify-center">
-        <p class="text-sm">
-            Copyright 2021 • All Rights Reserved LuxSpace by BuildWith Angga
-        </p>
-    </footer>
-    <!-- END: FOOTER -->
+    @include('pages.frontend.include.footer')
 
     <!-- START: LOAD SVG -->
     <!-- <svg width="23" height="26" class="hidden" id="icon-play">
-      <path
+        <path
         d="M21 9.536c2.667 1.54 2.667 5.39 0 6.928l-15 8.66c-2.667 1.54-6-.385-6-3.464V4.34C0 1.26 3.333-.664 6 .876l15 8.66z"
-        fill="#fff"
-      />
+        fill="#fff"/>
     </svg> -->
     <!-- END: LOAD SVG  -->
 
