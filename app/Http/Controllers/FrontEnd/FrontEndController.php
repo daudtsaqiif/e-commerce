@@ -11,8 +11,8 @@ class FrontEndController extends Controller
 {
     //
     public function index(){
-        $category = Category::select('id', 'name')->latest()->get();
-        $product = Product::with('product_galleries');
+        $category = Category::select('id', 'name')->latest()->get();    
+        $product = Product::with('product_galleries')->select('id', 'name', 'slug', 'price')->latest()->get();
 
         return view('pages.frontend.index', compact('category'));
     }
