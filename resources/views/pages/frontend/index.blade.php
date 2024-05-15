@@ -17,10 +17,6 @@
         <div class="flex -mx-4 flex-row relative">
 
             @foreach ($product as $item )
-                
-            @endforeach
-
-            <!-- START: JUST ARRIVED ROW 1 -->
             <div class="px-4 relative card group">
                 <div class="rounded-xl overflow-hidden card-shadow relative" style="width: 287px; height: 386px">
                     <div
@@ -38,14 +34,14 @@
                     <img src="{{ asset('frontend/images/content/image-arrived-1.png') }}" alt=""
                         class="w-full h-full object-cover object-center" />
                 </div>
-                <h5 class="text-lg font-semibold mt-4">Cangkir Mauttie</h5>
-                <span class="">IDR 89.300</span>
+                <h5 class="text-lg font-semibold mt-4">{{ $item->name}}</h5>
+                <span class="">IDR {{ number_format($item->price) }}</span>
                 <a href="#details.html" class="stretched-link">
                     <!-- fake children -->
                 </a>
             </div>
-            <!-- END: JUST ARRIVED ROW 1 -->
-        </div>
+            @endforeach
+
         <!-- </div> -->
     </div>
 </section>
