@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
+use Exception;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -41,7 +43,16 @@ class FrontEndController extends Controller
         return view('pages.frontend.cart', compact('category'));
     }
 
-    public function addToCart(){
-        
+    public function addToCart(Request $request, $id){
+        try {
+            Cart::create([
+                'product_id' => $id,
+                'user_id' => auth()->user()->id
+            ]);
+            return redirect()->route('cart');
+        } catch (Exception $e) {
+            // dd($e->getMessage());
+            return redirect()->back()->with('error', 'Terjadi Kesalahan');
+        }
     }
 }
