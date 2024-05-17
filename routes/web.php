@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'index']);
+Route::get('/detail-product/{slug}', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'detailProduct'])->name('detail.product');
 
 Auth::routes();
 
