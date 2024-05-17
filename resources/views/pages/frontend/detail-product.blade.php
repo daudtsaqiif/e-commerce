@@ -12,7 +12,7 @@
                     <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="#">{{ $product->category->name }}</a>
+                    <a href="{{ route('detail.category', $product->category->slug) }}">{{ $product->category->name }}</a>
                 </li>
                 <li>
                     <a href="#" aria-label="current-page">{{ $product->name }}</a>
