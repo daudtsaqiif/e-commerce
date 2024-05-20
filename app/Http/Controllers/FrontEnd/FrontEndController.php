@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Transaction;
+use App\Models\TransactionItem;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -63,6 +65,41 @@ class FrontEndController extends Controller
             Cart::findOrFail($id)->delete();
 
             return redirect()->route('cart');
+        } catch (\Exception $e) {
+            // dd($e->getMessage())
+            return redirect()->back();
+        }
+    }
+
+    public function checkout(Request $request){
+        try {
+            $data = $request->all();
+
+            $cart = Cart::with('product')->where('user_id', auth()->user()->id)->latest()->get();
+
+            // add data to transaction
+            $data['user_id'] = auth()->user()->id;
+            $data['total_price'] = $cart->sum('product.price');
+            $data['status'] = 'PENDING';
+
+            //crate transaction
+            $transaction = Transaction::create($data);
+
+            //add data to transaction item
+            foreach ($cart as $item) {
+                $item [] = TransactionItem::create([
+                    'transaction_id' => $transaction->id,
+                    'product_id' => $item->product_id,
+                    'user_id' => auth()->user()->id
+                ]);
+            }
+
+            //delete cart
+            Cart::where('user_id', auth()->user()->id)->delete;
+
+            //config midtrans
+            
+
         } catch (\Exception $e) {
             // dd($e->getMessage())
             return redirect()->back();

@@ -138,15 +138,8 @@
                                     <div class="px-2 w-6/12 h-24 mb-4">
                                         <button type="button" data-value="fedex" data-name="courier"
                                             class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
-                                            <img src="./images/content/logo-fedex.svg" alt="Logo Fedex"
+                                            <img src="{{ asset('frontend/images/content/logo-fedex.svg') }}" alt="Logo Fedex"
                                                 class="object-contain max-h-full"  />
-                                        </button>
-                                    </div>
-                                    <div class="px-2 w-6/12 h-24 mb-4">
-                                        <button type="button" data-value="dhl" data-name="courier"
-                                            class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
-                                            <img src="./images/content/logo-dhl.svg" alt="Logo dhl"
-                                                class="object-contain max-h-full" />
                                         </button>
                                     </div>
                                 </div>
@@ -158,28 +151,8 @@
                                     <div class="px-2 w-6/12 h-24 mb-4">
                                         <button type="button" data-value="midtrans" data-name="payment"
                                             class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
-                                            <img src="./images/content/logo-midtrans.png" alt="Logo midtrans"
+                                            <img src="{{asset('frontend/images/content/logo-midtrans.png')}}" alt="Logo midtrans"
                                                 class="object-contain max-h-full" />
-                                        </button>
-                                    </div>
-                                    <div class="px-2 w-6/12 h-24 mb-4">
-                                        <button type="button" data-value="mastercard" data-name="payment"
-                                            class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
-                                            <img src="./images/content/logo-mastercard.svg" alt="Logo mastercard" />
-                                        </button>
-                                    </div>
-                                    <div class="px-2 w-6/12 h-24 mb-4">
-                                        <button type="button" data-value="bitcoin" data-name="payment"
-                                            class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
-                                            <img src="./images/content/logo-bitcoin.svg" alt="Logo bitcoin"
-                                                class="object-contain max-h-full" />
-                                        </button>
-                                    </div>
-                                    <div class="px-2 w-6/12 h-24 mb-4">
-                                        <button type="button" data-value="american-express" data-name="payment"
-                                            class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
-                                            <img src="./images/content/logo-american-express.svg"
-                                                alt="Logo american-logo-american-express" />
                                         </button>
                                     </div>
                                 </div>
