@@ -40,7 +40,9 @@ class FrontEndController extends Controller
 
     public function cart(){
         $category = Category::select('id', 'name', 'slug');
-        return view('pages.frontend.cart', compact('category'));
+        $cart = Cart::with('product')->where('user_id', auth()->user()->id)->get();
+
+        return view('pages.frontend.cart', compact('category', 'cart'));
     }
 
     public function addToCart(Request $request, $id){
