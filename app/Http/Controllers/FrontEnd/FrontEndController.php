@@ -57,4 +57,15 @@ class FrontEndController extends Controller
             return redirect()->back()->with('error', 'Terjadi Kesalahan');
         }
     }
+
+    public function deleteCart($id){
+        try {
+            Cart::findOrFail($id)->delete();
+
+            return redirect()->route('cart');
+        } catch (\Exception $e) {
+            // dd($e->getMessage())
+            return redirect()->back();
+        }
+    }
 }
