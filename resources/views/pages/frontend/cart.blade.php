@@ -56,7 +56,7 @@
                     <div class="flex flex-start flex-wrap items-center mb-4 -mx-4" data-row="1">
                         <div class="px-4 flex-none">
                             <div class="" style="width: 90px; height: 90px">
-                                <img src="{{ url('storage/product/gallery/', $item->product->product_galleries) }}" alt="chair-1"
+                                <img src="{{$item->product->product_galleries()->exists() ?  url('storage/product/gallery/', $item->product->product_galleries->first()->image) : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88B8AAsUB4ZtvXtIAAAAASUVORK5CYII=' }}" alt="chair-1"
                                     class="object-cover rounded-xl w-full h-full" />
                             </div>
                         </div>

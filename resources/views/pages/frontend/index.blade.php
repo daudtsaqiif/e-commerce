@@ -31,7 +31,7 @@
                             </svg>
                         </div>
                     </div>
-                    <img src="{{ $item->product_galleries()->exists() ? url('storage/product/gallery', $item->product_galleries->first()->image) : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAC0lEQVR42mN88B8AAsUB4ZtvXtIAAAAASUVORK5CYII=' }}" alt="{{ $item->name }}"
+                    <img src="{{ $item->product_galleries()->exists() ? url('storage/product/gallery', $item->product_galleries->first()->image) : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88B8AAsUB4ZtvXtIAAAAASUVORK5CYII=' }}" alt="{{ $item->name }}"
                         class="w-full h-full object-cover object-center" />
                 </div>
                 <h5 class="text-lg font-semibold mt-4">{{ $item->name}}</h5>
