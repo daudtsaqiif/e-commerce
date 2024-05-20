@@ -136,7 +136,7 @@
                                 <label for="complete-name" class="text-sm mb-2">Choose Courier</label>
                                 <div class="flex -mx-2 flex-wrap">
                                     <div class="px-2 w-6/12 h-24 mb-4">
-                                        <button type="button" data-value="fedex" data-name="courier"
+                                        <button type="button" data-value="fedex" data-name="courier" name="courier"
                                             class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
                                             <img src="{{ asset('frontend/images/content/logo-fedex.svg') }}" alt="Logo Fedex"
                                                 class="object-contain max-h-full"  />
@@ -149,7 +149,7 @@
                                 <label for="complete-name" class="text-sm mb-2">Choose Payment</label>
                                 <div class="flex -mx-2 flex-wrap">
                                     <div class="px-2 w-6/12 h-24 mb-4">
-                                        <button type="button" data-value="midtrans" data-name="payment"
+                                        <button type="button" data-value="midtrans" data-name="payment" name="payment"
                                             class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
                                             <img src="{{asset('frontend/images/content/logo-midtrans.png')}}" alt="Logo midtrans"
                                                 class="object-contain max-h-full" />
