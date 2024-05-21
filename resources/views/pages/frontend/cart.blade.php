@@ -91,7 +91,6 @@
                     @empty
                         <p id="cart-empty" class="hidden text-center py-8">
                             Ooops... Cart is empty
-                            <a href="{{ route('detail.category') }}" class="underline">Shop Now</a>
                         </p>
                     @endforelse
 
