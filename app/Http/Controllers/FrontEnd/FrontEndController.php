@@ -40,14 +40,16 @@ class FrontEndController extends Controller
         return view('pages.frontend.detail-category', compact('category', 'categories', 'product'));
     }
 
-    public function cart(){
+    public function cart()
+    {
         $category = Category::select('id', 'name', 'slug');
         $cart = Cart::with('product')->where('user_id', auth()->user()->id)->latest()->get();
 
         return view('pages.frontend.cart', compact('category', 'cart'));
     }
 
-    public function addToCart(Request $request, $id){
+    public function addToCart(Request $request, $id)
+    {
         try {
             Cart::create([
                 'product_id' => $id,
@@ -60,7 +62,8 @@ class FrontEndController extends Controller
         }
     }
 
-    public function deleteCart($id){
+    public function deleteCart($id)
+    {
         try {
             Cart::findOrFail($id)->delete();
 
@@ -71,34 +74,27 @@ class FrontEndController extends Controller
         }
     }
 
-    public function checkout(Request $request){
+    public function checkout(Request $request)
+    {
         try {
+
+            //request data
             $data = $request->all();
 
-            $cart = Cart::with('product')->where('user_id', auth()->user()->id)->latest()->get();
+            //get data cart user
+            $cart = Cart::with('product')->where('user_id', auth()->user()->id)->get();
+            // dd data cart
+            // dd($cart);
 
-            // add data to transaction
-            $data['user_id'] = auth()->user()->id;
-            $data['total_price'] = $cart->sum('product.price');
-            $data['status'] = 'PENDING';
-
-            //crate transaction
-            $transaction = Transaction::create($data);
-
-            //add data to transaction item
-            foreach ($cart as $item) {
-                $item [] = TransactionItem::create([
-                    'transaction_id' => $transaction->id,
-                    'product_id' => $item->product_id,
-                    'user_id' => auth()->user()->id
-                ]);
-            }
-
-            //delete cart
-            Cart::where('user_id', auth()->user()->id)->delete;
-
-            //config midtrans
-            
+            // create transaction
+            $transaction = Transaction::create([
+                'user_id' => auth()->user()->id,
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'address' => $data['address'],
+                'phone' => $data['phone'],
+                'total_price' => $cart->sum('product.price')
+            ]);
 
         } catch (\Exception $e) {
             // dd($e->getMessage())
