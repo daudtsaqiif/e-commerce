@@ -107,6 +107,8 @@ class FrontEndController extends Controller
                 ]);
             }
 
+            // dd($transaction);
+
             //delete cart
             Cart::where('user_id', auth()->user()->id)->delete();
 
@@ -140,14 +142,16 @@ class FrontEndController extends Controller
             $paymentUrl = Snap::createTransaction($midtrans)->redirect_url;
 
             // update payment url
-            $transaction->update9([
+            $transaction->update([
                 'payment_url' => $paymentUrl
             ]);
+
+            // dd($transaction);
             
             return redirect($paymentUrl);
 
         } catch (\Exception $e) {
-            // dd($e->getMessage())
+            dd($e->getMessage());
             return redirect()->back();
         }
     }
