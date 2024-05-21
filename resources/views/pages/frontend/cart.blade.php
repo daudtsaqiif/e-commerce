@@ -99,10 +99,13 @@
 
                 <div class="w-full md:px-4 md:w-4/12" id="shipping-detail">
                     <div class="bg-gray-100 px-4 py-6 md:p-8 md:rounded-3xl">
-                        <form action="success.html">
+                        <form action="{{ route('checkout') }}" method="post">
+                            @csrf
+                            @method('post')
                             <div class="flex flex-start mb-6">
                                 <h3 class="text-2xl">Shipping Details</h3>
                             </div>
+                            
 
                             <div class="flex flex-col mb-4">
                                 <label for="complete-name" class="text-sm mb-2">Complete Name</label>
@@ -138,8 +141,8 @@
                                     <div class="px-2 w-6/12 h-24 mb-4">
                                         <button type="button" data-value="fedex" data-name="courier" name="courier"
                                             class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
-                                            <img src="{{ asset('frontend/images/content/logo-fedex.svg') }}" alt="Logo Fedex"
-                                                class="object-contain max-h-full"  />
+                                            <img src="{{ asset('frontend/images/content/logo-fedex.svg') }}"
+                                                alt="Logo Fedex" class="object-contain max-h-full" />
                                         </button>
                                     </div>
                                 </div>
@@ -151,8 +154,8 @@
                                     <div class="px-2 w-6/12 h-24 mb-4">
                                         <button type="button" data-value="midtrans" data-name="payment" name="payment"
                                             class="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none">
-                                            <img src="{{asset('frontend/images/content/logo-midtrans.png')}}" alt="Logo midtrans"
-                                                class="object-contain max-h-full" />
+                                            <img src="{{ asset('frontend/images/content/logo-midtrans.png') }}"
+                                                alt="Logo midtrans" class="object-contain max-h-full" />
                                         </button>
                                     </div>
                                 </div>

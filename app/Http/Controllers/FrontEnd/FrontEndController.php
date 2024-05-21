@@ -11,6 +11,7 @@ use App\Models\TransactionItem;
 use Exception;
 use Illuminate\Http\Request;
 use Midtrans\Config;
+use Midtrans\Snap;
 
 class FrontEndController extends Controller
 {
@@ -117,7 +118,33 @@ class FrontEndController extends Controller
             Config::$isProduction = config('services.midtrans.isProduction');
             Config::$isSanitized = config('services.midtrans.isSanitized');
             Config::$is3ds = config('services.midtrans.is3ds');
+
+            //setup variable for midtrans
+            $midtrans = [
+                'transaction_details' => [
+                    'order_id' => 'daud' . $transaction->id,
+                    'gross_amount' => (int) $transaction->total_price
+                ],
+
+                'costumer_details' => [
+                    'first_name' => $transaction->name,
+                    'email' => $transaction->email,
+                    'phone' => $transaction->phone
+                ],
+
+                'enable_payments' => ['gopay', 'bank_transfer'],
+                'vtweb' => []
+            ];
+
+            //create payment url form midtrans
+            $paymentUrl = Snap::createTransaction($midtrans)->redirect_url;
+
+            // update payment url
+            $transaction->update9([
+                'payment_url' => $paymentUrl
+            ]);
             
+            return redirect($paymentUrl);
 
         } catch (\Exception $e) {
             // dd($e->getMessage())
