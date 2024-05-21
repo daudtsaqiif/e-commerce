@@ -10,6 +10,7 @@ use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Exception;
 use Illuminate\Http\Request;
+use Midtrans\Config;
 
 class FrontEndController extends Controller
 {
@@ -95,6 +96,28 @@ class FrontEndController extends Controller
                 'phone' => $data['phone'],
                 'total_price' => $cart->sum('product.price')
             ]);
+
+            //create transaction item
+            foreach ($cart as $item) {
+                TransactionItem::create([
+                    'user_id' => auth()->user()->id,
+                    'product_id' => $item->product_id,
+                    'transaction_id' => $transaction->id
+                ]);
+            }
+
+            //delete cart
+            Cart::where('user_id', auth()->user()->id)->delete();
+
+            // setting midtrans
+            //use midtrans\Config;
+            //use midtrans\Snap
+            Config::$serverKey = config('services.midtrans.serverKey');
+            Config::$clientKey = config('services.midtrans.clientKey');
+            Config::$isProduction = config('services.midtrans.isProduction');
+            Config::$isSanitized = config('services.midtrans.isSanitized');
+            Config::$is3ds = config('services.midtrans.is3ds');
+            
 
         } catch (\Exception $e) {
             // dd($e->getMessage())
