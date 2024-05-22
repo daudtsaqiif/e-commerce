@@ -46,9 +46,13 @@
                             <td>IDR {{ number_format($row->total_price) }}</td>
                             <td>
                                 @if ($row->status == 'EXPIRED')
+                                <span class="badge bg-danger">Expired</span>
                                 @elseif ($row->status == 'PENDING')
+                                <span class="badge bg-warning">Pending</span>
                                 @elseif ($row->status == 'SETTLEMENT')
+                                <span class="badge bg-info">Settlement</span>
                                 @else
+                                <span class="badge bg-success">Success</span>
                                 @endif
                             </td>
                             <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
