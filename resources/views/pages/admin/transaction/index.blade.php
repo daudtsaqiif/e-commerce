@@ -31,11 +31,12 @@
                         <td>Email</td>
                         <td>Phone</td>
                         <td>Total Price</td>
+                        <td>Status</td>
                         <td>Action</td>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($myTransaction as $row)
+                    @forelse ($transaction as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ auth()->user()->name }}</td>
@@ -43,11 +44,18 @@
                             <td>{{ $row->user->email }}</td>
                             <td>{{ $row->phone }}</td>
                             <td>IDR {{ number_format($row->total_price) }}</td>
+                            <td>
+                                @if ($row->status == 'EXPIRED')
+                                @elseif ($row->status == 'PENDING')
+                                @elseif ($row->status == 'SETTLEMENT')
+                                @else
+                                @endif
+                            </td>
                             <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#basicModalTransaction{{ $row->id }}">
                                     <i class="bi bi-eye"></i> show more details..
                                 </button></td>
-                                @include('pages.admin.my-transaction.modal-show')
+                            @include('pages.admin.my-transaction.modal-show')
                         </tr>
                     @empty
                     @endforelse
