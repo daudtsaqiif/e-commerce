@@ -31,7 +31,7 @@
                 <div class="px-3 flex-none" style="width: 320px">
                     <div class="rounded-xl p-4 pb-8 relative bg-white">
                         <div class="rounded-xl overflow-hidden card-shadow w-full h-36">
-                            <img src="{{ $row->product_galleries()->exists() ? url('storage/product/gallery', $row->product_galleries->first()->image) : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAC0lEQVR42mN88B8AAsUB4ZtvXtIAAAAASUVORK5CYII=' }}" alt="{{ $row->name }}" alt=""
+                            <img src="{{ $row->product_galleries()->exists() ? url('storage/product/gallery', $row->product_galleries->first()->image) : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88B8AAsUB4ZtvXtIAAAAASUVORK5CYII=' }}" alt="{{ $row->name }}" alt=""
                                 class="w-full h-full object-cover object-center" />
                         </div>
                         <h5 class="text-lg font-semibold mt-4">{{ $row->name }}</h5>
