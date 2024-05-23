@@ -48,7 +48,11 @@
                 <div class="">
                     <label for="inputText" class=" col-form-label">Payment URL:</label>
                     <div class="">
-                        <a href="{{ $row->payment_url }}" class="btn btn-success">see payment url</a>
+                        @if ($row->payment_url == '')
+                        <span class="badge bg-danger">GAGAL</span>
+                    @else
+                        <a href="{{ $row->payment_url }}" class="btn btn-success">MIDTRANS</a>
+                    @endif
                     </div>
                 </div>
 
