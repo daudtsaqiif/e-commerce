@@ -38,10 +38,10 @@ class MyTransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Transaction $myTransaction)
     {
         //
-        $transactionItem = TransactionItem::with(['product'])->where('transaction_id', $id)->get();
+        $transactionItem = TransactionItem::with(['product'])->where('transaction_id', 'name', $name)->get();
         
 
         return view('pages.admin.my-transaction.show', compact('transactionItem'));

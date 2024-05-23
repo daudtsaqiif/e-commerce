@@ -22,4 +22,27 @@
         </div>
     </div>
 
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Detail Transaction</h5>
+
+            <!-- Table with stripped rows -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Name Acount</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Brandon Jacob</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+        </div>
+    </div>
+
 @endsection
