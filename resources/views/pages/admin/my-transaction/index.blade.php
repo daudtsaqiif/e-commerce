@@ -10,7 +10,11 @@
 
             <nav>
                 <ol class="breadcrumb">
+                    @if (Auth::user()->role == 'admin')
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                    @else
+                    <li class="breadcrumb-item"><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+                    @endif
                     <li class="breadcrumb-item"><a href="#">Transaction</a></li>
                     <li class="breadcrumb-item active">MyTransaction</li>
                 </ol>
@@ -53,11 +57,14 @@
                                 <span class="badge text-uppercase bg-success">Success</span>
                                 @endif</td>
                             <td>IDR {{ number_format($row->total_price) }}</td>
-                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#basicModalTransaction{{ $row->id }}">
-                                    <i class="bi bi-eye"></i> show more details..
-                                </button></td>
-                                @include('pages.admin.my-transaction.modal-show')
+                            <td>
+                                @if (Auth::user()->role == 'admin')
+                                <a href="{{ route('admin.my-transaction.show', $row->id) }}" class="btn btn-info btn-sm"><bi class="bi-eye"></bi> Details</a>
+                                @else
+                                <a href="{{ route('user.my-transaction.show', $row->id) }}" class="btn btn-info btn-sm"><bi class="bi-eye"></bi> Details</a>
+                                @endif
+                                
+                            </td>
                         </tr>
                     @empty
                     @endforelse
