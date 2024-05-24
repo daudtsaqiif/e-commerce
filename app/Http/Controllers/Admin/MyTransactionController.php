@@ -38,13 +38,10 @@ class MyTransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show($id)
     {
         //
-        $transactionItem = TransactionItem::with(['product'])->where('transaction_id', 'name', $name)->get();
-        
 
-        return view('pages.admin.my-transaction.show', compact('transactionItem'));
     }
 
     /**
@@ -69,5 +66,11 @@ class MyTransactionController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function showDataBySlugAndId($slug, $id){
+        $transaction = Transaction::where('slug', $slug)->where('id', $id)->firstOrFail();
+
+        return view('pages.admin.my-transaction.show', compact('transaction'));
     }
 }
