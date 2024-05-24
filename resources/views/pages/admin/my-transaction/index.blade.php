@@ -59,9 +59,9 @@
                             <td>IDR {{ number_format($row->total_price) }}</td>
                             <td>
                                 @if (Auth::user()->role == 'admin')
-                                <a href="{{ route('admin.my-transaction.show', $row->name) }}" class="btn btn-info btn-sm"><bi class="bi-eye"></bi> Details</a>
+                                <a href="{{ route('admin.my-transaction.showDataBySlugAndId', [$row->slug, $row->id]) }}" class="btn btn-info btn-sm"><bi class="bi-eye"></bi> Details</a>
                                 @else
-                                <a href="{{ route('user.my-transaction.show', $row->name) }}" class="btn btn-info btn-sm"><bi class="bi-eye"></bi> Details</a>
+                                <a href="{{ route('user.my-transaction.showDataBySlugAndId', [$row->slug, $row->id]) }}" class="btn btn-info btn-sm"><bi class="bi-eye"></bi> Details</a>
                                 @endif
                                 
                             </td>
