@@ -38,7 +38,7 @@ class MyTransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Transaction $myTransaction)
+    public function show($slug)
     {
         //
         $transactionItem = TransactionItem::with(['product'])->where('transaction_id', 'name', $name)->get();
