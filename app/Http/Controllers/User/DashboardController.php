@@ -11,8 +11,12 @@ class DashboardController extends Controller
 {
     //
     public function index(){
-        $transaction = Transaction::count();
-        return view('pages.user.index', compact('transaction'));
+        $statusTransaction = Transaction::where('user_id', auth()->user()->id)->get();
+        $pending = $statusTransaction->where('status', 'PENDING')->count();
+        $settlement = $statusTransaction->where('status', 'SETTLEMENT')->count();
+        $expired = $statusTransaction->where('status', 'EXPIRED')->count();
+        
+        return view('pages.user.index', compact('statusTransaction', 'pending', 'settlement', 'expired'));
     }
 
     public function updatePassword(){

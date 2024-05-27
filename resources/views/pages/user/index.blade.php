@@ -26,7 +26,7 @@
                                 <i class="bi bi-cart"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>{{ $transaction }}</h6>
+                                <h6>{{ $pending }}</h6>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                 <i class="bi bi-cart"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>{{ $transaction }}</h6>
+                                <h6>{{ $settlement }}</h6>
                             </div>
                         </div>
                     </div>
@@ -56,15 +56,14 @@
                                 <i class="bi bi-cart"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>{{ $transaction }}</h6>
+                                <h6>{{ $expired }}</h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </div>
-    </div>
 
 @endsection
