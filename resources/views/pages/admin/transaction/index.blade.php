@@ -63,12 +63,15 @@
                                     <span class="badge bg-success">Success</span>
                                 @endif
                             </td>
-                            {{-- <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#basicModalTransaction{{ $row->id }}">
-                                    <i class="bi bi-eye"></i> show more details..
-                                </button></td> --}}
-                            <td>Action</td>
-                            {{-- @include('pages.admin.my-transaction.modal-show') --}}
+                            <td> 
+                                <a href="#" class="btn btn-info btn-sm mx-2">Show</a>
+
+                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#statusUpdate{{ $row->id }}">
+                                    Edit
+                                </button>
+                                @include('pages.admin.transaction.modal-edit')
+                            </td>
                         </tr>
                     @empty
                     @endforelse
@@ -76,5 +79,5 @@
             </table>
         </div>
     </div>
-
+    
 @endsection

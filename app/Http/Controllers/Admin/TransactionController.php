@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use Exception;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -14,7 +15,7 @@ class TransactionController extends Controller
     public function index()
     {
         //
-        $transaction = Transaction::With('user')->select('id','user_id', 'name', 'email', 'phone', 'status', 'total_price', 'payment_url', 'payment', 'address', 'courier')->latest()->get();
+        $transaction = Transaction::With('user')->select('id','user_id', 'slug' , 'name', 'email', 'phone', 'status', 'total_price', 'payment_url', 'payment', 'address', 'courier')->latest()->get();
 
         return view('pages.admin.transaction.index' , compact('transaction'));
     }
@@ -48,7 +49,9 @@ class TransactionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //get data section by id
+       
+
     }
 
     /**
@@ -56,7 +59,17 @@ class TransactionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //get data transaction
+        $transaction = Transaction::findOrFail($id);
+        try {
+            //code...
+            $transaction->update([
+                'status' => $request->status
+            ]);
+            return redirect()->route('admin.transaction.index')->with('success', 'Updated');
+        } catch (\Exception $e) {
+            return redirect()->route('admin.transaction.index')->with('error', 'Failed');
+        }
     }
 
     /**
@@ -65,5 +78,9 @@ class TransactionController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function showTransactionUserByAdminWithSlugAndId($slug, $id){
+        $transaction = Transaction::where('slug', $slug)->where('id', $id)->first();
     }
 }

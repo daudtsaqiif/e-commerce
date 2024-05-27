@@ -15,8 +15,9 @@ class DashboardController extends Controller
         $pending = $statusTransaction->where('status', 'PENDING')->count();
         $settlement = $statusTransaction->where('status', 'SETTLEMENT')->count();
         $expired = $statusTransaction->where('status', 'EXPIRED')->count();
+        $success = $statusTransaction->where('status', 'SUCCESS')->count();
         
-        return view('pages.user.index', compact('statusTransaction', 'pending', 'settlement', 'expired'));
+        return view('pages.user.index', compact('statusTransaction', 'pending', 'settlement', 'expired', 'success'));
     }
 
     public function updatePassword(){
