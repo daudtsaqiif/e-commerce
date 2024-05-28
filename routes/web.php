@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProducGalleryController;
 use App\Http\Controllers\Admin\ProductController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,4 +44,12 @@ Route::name('user.')->prefix('user')->middleware('user')->group(function () {
     Route::resource('/my-transaction', MyTransactionController::class)->only(['index']);
     Route::get('/my-transaction/{id}/{slug}', [MyTransactionController::class, 'showDataBySlugAndId'])->name('my-transaction.showDataBySlugAndId');
     Route::put('/changePassword', [App\Http\Controllers\User\DashboardController::class, 'changePassword'])->name('changePassword');
+});
+
+//Route::Artisan Call
+Route::get('/artisan-call', function(){
+    Artisan::call('storage:link');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    return 'success';
 });
