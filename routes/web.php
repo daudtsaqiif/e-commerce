@@ -34,6 +34,7 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/transaction', TransactionController::class);
     Route::resource('/my-transaction', MyTransactionController::class)->only(['index']);
     Route::get('/my-transaction/{id}/{slug}', [MyTransactionController::class, 'showDataBySlugAndId'])->name('my-transaction.showDataBySlugAndId');
+    Route::get('/transaction/{id}/{slug}', [TransactionController::class, 'showTransactionUserByAdminWithSlugAndId'])->name('transaction.showTransactionUserByAdminWithSlugAndId');
 });
 
 Route::name('user.')->prefix('user')->middleware('user')->group(function () {

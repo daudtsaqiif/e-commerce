@@ -10,7 +10,7 @@
             @method('PUT')
             <div class="modal-body">
                 <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="status">
                         <option selected>Select Status</option>
                         <option value="PENDING">PENDING</option>
                         <option value="SETTLEMENT">SETTLEMENT</option>

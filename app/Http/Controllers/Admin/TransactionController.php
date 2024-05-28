@@ -68,6 +68,7 @@ class TransactionController extends Controller
             ]);
             return redirect()->route('admin.transaction.index')->with('success', 'Updated');
         } catch (\Exception $e) {
+            dd($e->getMessage());
             return redirect()->route('admin.transaction.index')->with('error', 'Failed');
         }
     }
@@ -83,4 +84,5 @@ class TransactionController extends Controller
     public function showTransactionUserByAdminWithSlugAndId($slug, $id){
         $transaction = Transaction::where('slug', $slug)->where('id', $id)->first();
     }
+
 }
