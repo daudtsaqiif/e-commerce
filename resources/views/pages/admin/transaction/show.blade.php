@@ -29,12 +29,12 @@
         <!-- Table with stripped rows -->
         <table class="table table-striped">
             <thead>
-                {{-- <tr>
+                <tr>
                     <th scope="col">Name Account</th>
                     <td scope="col">
-                        {{ auth()->user()->name }}
+                        {{ $transaction->user->name }}
                     </td>
-                </tr> --}}
+                </tr>
                 <tr>
                     <th scope="col">Reciever Name</th>
                     <td scope="col">

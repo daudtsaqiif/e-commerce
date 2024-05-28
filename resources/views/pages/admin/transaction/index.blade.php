@@ -64,7 +64,7 @@
                                 @endif
                             </td>
                             <td> 
-                                <a href="#" class="btn btn-info btn-sm mx-2">Show</a>
+                                <a href="{{ route('admin.transaction.showDataBySlugAndId',  [$row->slug, $row->id]) }}" class="btn btn-info btn-sm mx-2">Show</a>
 
                                 <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#statusUpdate{{ $row->id }}">

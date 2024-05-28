@@ -83,6 +83,8 @@ class TransactionController extends Controller
 
     public function showTransactionUserByAdminWithSlugAndId($slug, $id){
         $transaction = Transaction::where('slug', $slug)->where('id', $id)->first();
+
+        return view('pages.admin.transaction.show', compact('transaction'));
     }
 
 }
