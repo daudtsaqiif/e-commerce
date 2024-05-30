@@ -76,7 +76,6 @@ class FrontEndController extends Controller
             return redirect()->back();
         }
     }
-
     public function checkout(Request $request)
     {
         try {
@@ -86,70 +85,67 @@ class FrontEndController extends Controller
 
             //get data cart user
             $cart = Cart::with('product')->where('user_id', auth()->user()->id)->get();
-            // dd data cart
+            
             // dd($cart);
 
-            // create transaction
+            //create transaction
             $transaction = Transaction::create([
                 'user_id' => auth()->user()->id,
                 'name' => $data['name'],
-                'slug' => Str::slug($data['name']) . '-' . time() ,
+                'slug' => Str::slug($data['name']) . '-' . time(),
                 'email' => $data['email'],
                 'address' => $data['address'],
                 'phone' => $data['phone'],
-                'total_price' => $cart->sum('product.price')
+                'total_price' => $cart->sum('product.price'),
             ]);
+            // dd($transaction);
 
+            //update slug transaction
+            
             //create transaction item
             foreach ($cart as $item) {
                 TransactionItem::create([
                     'user_id' => auth()->user()->id,
                     'product_id' => $item->product_id,
-                    'transaction_id' => $transaction->id
+                    'transaction_id' => $transaction->id,
                 ]);
             }
-
-            // dd($transaction);
 
             //delete cart
             Cart::where('user_id', auth()->user()->id)->delete();
 
-            // setting midtrans
-            //use midtrans\Config;
-            //use midtrans\Snap
+            //setting midtrans
+            // use Midtrans\Config;
+            // use Midtrans\Snap;
             Config::$serverKey = config('services.midtrans.serverKey');
             Config::$clientKey = config('services.midtrans.clientKey');
             Config::$isProduction = config('services.midtrans.isProduction');
             Config::$isSanitized = config('services.midtrans.isSanitized');
             Config::$is3ds = config('services.midtrans.is3ds');
 
-            //setup variable for midtrans
+            // setup variable for midtrans
             $midtrans = [
                 'transaction_details' => [
-                    'order_id' => 'daud' . $transaction->id,
-                    'gross_amount' => (int) $transaction->total_price
+                    'order_id' => 'TR' . $transaction->id . '_' . Str::uuid(),
+                    'gross_amount' => (int) $transaction->total_price,
                 ],
-
                 'costumer_details' => [
                     'first_name' => $transaction->name,
                     'email' => $transaction->email,
-                    'phone' => $transaction->phone
+                    'phone' => $transaction->phone,
                 ],
-
                 'enable_payments' => ['gopay', 'bank_transfer'],
                 'vtweb' => []
             ];
 
-            //create payment url form midtrans
+            //create payment url from midtrans
             $paymentUrl = Snap::createTransaction($midtrans)->redirect_url;
 
-            // update payment url
+            //update payment url
             $transaction->update([
                 'payment_url' => $paymentUrl
             ]);
 
-            // dd($transaction);
-            
             return redirect($paymentUrl);
 
         } catch (\Exception $e) {
